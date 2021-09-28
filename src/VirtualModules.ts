@@ -68,7 +68,7 @@ export default class VirtualModules {
       'Argument 2 expecting string code or Function'
     );
     this._registry[this.resolve(destination)] = source;
-    return this;
+    return this.start();
   }
 
   /**
@@ -123,7 +123,7 @@ export default class VirtualModules {
       'Argument 2 expecting Function'
     );
     this._transformations.push({ test, callback });
-    return this;
+    return this.start();
   }
 
   /**

@@ -5,6 +5,10 @@
   "author": "Chris <chris@incept.asia>",
   "license": "MIT",
   "main": "dist/index.js",
+  "engines" : { 
+    "node" : ">=16" 
+  },
+  "engineStrict" : true,
   "files": [
     "dist"
   ],

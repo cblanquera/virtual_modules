@@ -17,6 +17,11 @@ describe('Babel Tests', () => {
       }).code
     })
 
+    vm.register('ghost/no-transform.js', [
+      `import React from 'react'`,
+      `export default (<h1>Hello</h1>)`
+    ].join("\n"))
+
     vm.register('ghost/components', function(request, destination, cwd) {
       if (request === 'ghost/components/Link') {
         return vm.transform(`${destination}.js`, [
@@ -34,7 +39,9 @@ describe('Babel Tests', () => {
       }
     })
 
-    const actual = require('ghost/components/Link').default
-    expect(ReactIs.isElement(actual)).to.equal(true)
+    const actual1 = require('ghost/no-transform').default
+    expect(ReactIs.isElement(actual1)).to.equal(true)
+    const actual2 = require('ghost/components/Link').default
+    expect(ReactIs.isElement(actual2)).to.equal(true)
   })
 })
