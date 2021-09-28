@@ -154,3 +154,8 @@ vm.start()
 ### Contributing
 
 Always welcome. Just ping me.
+
+ - Fork/Clone this repo 
+ - Run `npm run build`
+ - Run `npm test`
+
