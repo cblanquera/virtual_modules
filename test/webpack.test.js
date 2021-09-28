@@ -1,6 +1,7 @@
 const { expect } = require('chai')
 const vm = require('../dist')
 const webpack = require('webpack')
+const VirtualModulesPlugin = require('webpack-virtual-modules');
 
 describe('Webpack Tests', () => {
   before(() => vm.start())
@@ -14,7 +15,10 @@ describe('Webpack Tests', () => {
       output: {
         filename: 'literal.js',
         path: `${__dirname}/assets`
-      }
+      },
+      plugins: [
+        new VirtualModulesPlugin(vm.safeRegistry)
+      ]
     })
 
     const compiler = wp.run(function(error, stats) {
@@ -29,17 +33,7 @@ describe('Webpack Tests', () => {
         }).errors[0].message)
       }
 
-      console.log('pass')
-
-      // Done processing
-      compiler.close((error) => {
-        if (error) {
-          return done(error)
-        }
-
-        console.log(stats)
-        done()
-      })
+      done()
     })
   })
 })

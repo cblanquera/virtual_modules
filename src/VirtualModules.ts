@@ -24,9 +24,28 @@ export default class VirtualModules {
   protected _transformations: Transformer[] = [];
 
   /**
+   * Returns the virtual registry
+   */
+  get registry(): Record<string, string|Function> {
+    return Object.assign({}, this._registry);
+  }
+
+  /**
+   * Returns the virtual registry without functions
+   */
+  get safeRegistry(): Record<string, string|Function> {
+    const registry: Record<string, string> = {};
+    for (const filename in this._registry) {
+      if (typeof this._registry[filename] === 'string') {
+        registry[filename] = this._registry[filename] as string;
+      }
+    }
+
+    return registry;
+  }
+
+  /**
    * Sets up the require resolver
-   *
-   * @param config - The options to pass to the engine
    */
   constructor() {
     requireResolver.on('resolve', this._resolve.bind(this));
