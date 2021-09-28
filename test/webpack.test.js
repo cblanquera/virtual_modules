@@ -1,0 +1,45 @@
+const { expect } = require('chai')
+const vm = require('../dist')
+const webpack = require('webpack')
+
+describe('Webpack Tests', () => {
+  before(() => vm.start())
+  after(() => vm.stop())
+
+  it('Should build virtual file', (done) => {
+    vm.register(`${__dirname}/ghost/literal.js`, 'module.exports = "Literal"')
+
+    const wp = webpack({
+      entry: `${__dirname}/ghost/literal.js`,
+      output: {
+        filename: 'literal.js',
+        path: `${__dirname}/assets`
+      }
+    })
+
+    const compiler = wp.run(function(error, stats) {
+      if (error) {
+        return done(error)
+      //if there's an error
+      } else if (stats.hasErrors()) {
+        //`stats.toJson()` is memory intensive
+        return done(stats.toJson({
+          all: false,
+          errors: true
+        }).errors[0].message)
+      }
+
+      console.log('pass')
+
+      // Done processing
+      compiler.close((error) => {
+        if (error) {
+          return done(error)
+        }
+
+        console.log(stats)
+        done()
+      })
+    })
+  })
+})
