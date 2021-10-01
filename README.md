@@ -1,3 +1,13 @@
+> DEPRECATION NOTICE: This project has moved to 
+[@inceptjs/virtualfs](https://www.npmjs.com/package/@inceptjs/virtualfs)
+
+Thanks to everyone that gave great feedback to this project! We moved 
+to `@inceptjs/virtualfs` *(VFS)*. VFS is built on top of 
+[memfs](https://www.npmjs.com/package/memfs) and can properly patch 
+the `fs` for use with `babel` and `webpack`.
+
+This package will still exist for educational purposes.
+
 # Node Virtual Modules
 
 Virtual Modules lets you create and modify files in a way that node 
@@ -5,21 +15,6 @@ treats them as if they were physically presented in the file system.
 
 > Warning: An experimental project that uses a few of Node's private 
 methods.
-
-## Why?
-
-If you ever tried to use [`material-ui icons`](https://mui.com/components/material-icons/)
-you would have noticed it greatly adds to the size of your project. 
-These kind of libraries that manually makes a file which is basically
-the same pattern could have benefited from declaring them virtually.
-
-Have you ever wanted to require something dynamic like thhe following?
-Maybe not! but, you get the idea.
-
-```js
-require('add/1') //--> 1
-require('add/2') //--> 2
-```
 
 > Tested on Node v16
 

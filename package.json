@@ -1,9 +1,17 @@
 {
   "name": "virtual_modules",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Enabling the virtual module space",
   "author": "Chris <chris@incept.asia>",
   "license": "MIT",
+  "homepage": "https://github.com/cblanquera/virtual_modules#readme",
+  "bugs": {
+    "url": "https://github.com/cblanquera/virtual_modules/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cblanquera/virtual_modules.git"
+  },
   "main": "dist/index.js",
   "engines" : { 
     "node" : ">=16" 
