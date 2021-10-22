@@ -1,0 +1,32 @@
+{
+  "name": "virtual_modules-webpack",
+  "version": "0.0.23",
+  "description": "Incept virtual file system",
+  "author": "Chris <chris@incept.asia>",
+  "license": "MIT",
+  "homepage": "https://github.com/cblanquera/virtual_modules",
+  "bugs": {
+    "url": "https://github.com/cblanquera/virtual_modules/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cblanquera/virtual_modules.git"
+  },
+  "main": "dist/WebpackPlugin.js",
+  "types": "dist/WebpackPlugin.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "mocha",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "virtual_modules": "^0.0.23"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
+    "webpack": "^5.50.0"
+  }
+}

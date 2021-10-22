@@ -1,43 +1,12 @@
 {
-  "name": "virtual_modules",
-  "version": "0.1.2",
-  "description": "Enabling the virtual module space",
-  "author": "Chris <chris@incept.asia>",
-  "license": "MIT",
-  "homepage": "https://github.com/cblanquera/virtual_modules#readme",
-  "bugs": {
-    "url": "https://github.com/cblanquera/virtual_modules/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cblanquera/virtual_modules.git"
-  },
-  "main": "dist/index.js",
-  "engines" : { 
-    "node" : ">=16" 
-  },
-  "engineStrict" : true,
-  "files": [
-    "dist"
-  ],
+  "name": "root",
+  "private": true,
   "scripts": {
-    "test": "mocha",
-    "build": "tsc"
-  },
-  "dependencies": {
-    "@inceptjs/types": "^0.0.13"
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --stream",
+    "test": "mocha"
   },
   "devDependencies": {
-    "@types/expect": "^24.3.0",
-    "@types/mocha": "^9.0.0",
-    "@babel/core": "^7.13.14",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/preset-react": "^7.14.5",
-    "chai": "^4.3.4",
-    "mocha": "^8.4.0",
-    "react": "^17.0.2",
-    "ts-mocha": "^8.0.0",
-    "webpack": "^5.50.0",
-    "webpack-virtual-modules": "0.4.3"
+    "lerna": "^4.0.0"
   }
 }
