@@ -1,6 +1,6 @@
 {
   "name": "virtual_modules-webpack",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Incept virtual file system",
   "author": "Chris <chris@incept.asia>",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "virtual_modules": "^0.0.24"
+    "virtual_modules": "^0.0.25"
   },
   "devDependencies": {
     "chai": "^4.3.4",

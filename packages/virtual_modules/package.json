@@ -1,6 +1,6 @@
 {
   "name": "virtual_modules",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Enabling the virtual module space",
   "author": "Chris <chris@incept.asia>",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@inceptjs/framework": "^0.0.24",
+    "@inceptjs/framework": "^0.0.25",
     "memfs": "^3.3.0"
   },
   "devDependencies": {
