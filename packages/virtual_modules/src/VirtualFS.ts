@@ -426,12 +426,8 @@ export default class VirtualFS extends MemVolume {
 
     const response = new Response();
     this._emitter.emitSync(file, file, response, this);
-  
-    if (response.body && typeof response.body === 'object') {
-      response.write(JSON.stringify(response.body, null, 4));
-    }
 
-    if (typeof response.body !== 'undefined' && response.body !== null) {
+    if (response.filled) {
       const dirname = path.dirname(file);
       if (!super.existsSync(dirname)) {
         this.mkdirSync(dirname, { recursive: true })

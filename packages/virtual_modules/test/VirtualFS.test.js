@@ -73,7 +73,7 @@ describe('Base Tests', () => {
   it('Should route and dynamically read from vfs using `fs` and `require`', () => {
     const route = `${__dirname}/assets/post/:id/info.json`
     this.vfs.route(route, (filename, res, vfs) => {
-      res.body = vfs.routeParams(filename, route)
+      res.write(vfs.routeParams(filename, route))
     })
 
     const test = `${__dirname}/assets/post/1/info.json`
@@ -117,9 +117,9 @@ describe('Base Tests', () => {
       const params = vfs.routeParams(filename, '/my/routes/**')
       const path = params.args.join('/')
       if (path === 'route/1.js') {
-        res.body = 'module.exports = require("./2")'
+        res.write('module.exports = require("./2")')
       } else if (path === 'route/2.js') {
-        res.body = 'module.exports = 1'
+        res.write('module.exports = 1')
       }
     })
 
