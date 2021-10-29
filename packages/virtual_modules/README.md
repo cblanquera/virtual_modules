@@ -66,7 +66,7 @@ vm.route('/my/post/:id/info.json', (filename, res, vm) => {
   //extract the params from the filename
   const params = vm.routeParams(filename, '/my/post/:id/info.json')
   //set the response body as a string or object
-  res.body = { id: params.params.id }
+  res.write({ id: params.params.id })
 })
 
 fs.readFileSync('/my/post/1/info.json').toString() //--> { id: 1 }
